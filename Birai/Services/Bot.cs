@@ -32,7 +32,7 @@ namespace Birai.Services
             var newline = $"https://bilibili.com/{bvid}," +
                 $"{vinfo.Data.Title.Replace(',', ' ')}," +
                 $"{vinfo.Data.TypeName}," +
-                $"{vinfo.Data.DurationSeconds % 60}:{vinfo.Data.DurationSeconds / 60 : 00}," +
+                $"{vinfo.Data.DurationSeconds / 60}:{vinfo.Data.DurationSeconds % 60:00}," +
                 (vinfo.Data.CopyRight == 1 ? "原创," : "搬运,") +
                 $"{uinfo.Data.Name}({uid})," +
                 $"{desciption.Replace(',', ' ')}," +
