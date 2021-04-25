@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+cookies.txt
+history.txt
+account.json
+videos.csv
+
+Build/
