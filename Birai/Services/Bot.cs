@@ -30,12 +30,12 @@ namespace Birai.Services
             var uinfo = await biraiProxy.GetUserInfoAsync(uid);
 
             var newline = $"https://bilibili.com/{bvid}," +
-                $"{vinfo.Data.Title.Replace(',', ' ')}," +
+                $"{vinfo.Data.Title.Trim().Replace('\n', ' ').Replace(',', ' ')}," +
                 $"{vinfo.Data.TypeName}," +
                 $"{vinfo.Data.DurationSeconds / 60}:{vinfo.Data.DurationSeconds % 60:00}," +
                 (vinfo.Data.CopyRight == 1 ? "原创," : "搬运,") +
                 $"{uinfo.Data.Name}({uid})," +
-                $"{desciption.Replace(',', ' ')}," +
+                $"{desciption.Trim().Replace('\n', ' ').Replace(',', ' ')}," +
                 $"{Environment.NewLine}";
 
             await File.AppendAllTextAsync("app/videos.csv", newline);
