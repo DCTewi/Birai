@@ -45,7 +45,7 @@ namespace Birai.Services
         {
             if (await biraiProxy.CheckForNewMessageAsync())
             {
-                Console.WriteLine("|||>\n|||> 收到新消息 ");
+                Console.WriteLine($"\n|||> 收到新消息 ({DateTime.Now.ToLongTimeString()})");
 
                 currentSession = await biraiProxy.GetLast20MessagesAsync();
 
@@ -89,7 +89,7 @@ namespace Birai.Services
                                                 {
                                                     Console.WriteLine("|> 回复发生未知错误");
                                                 }
-                                                else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送 {result.Message}" : $"|> 回复发送失败{result.Message}");
+                                                else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送, 返回消息: [{result.Message}]" : $"|> 回复发送失败{result.Message}");
 
                                                 Thread.Sleep(200);
                                             }
@@ -101,7 +101,7 @@ namespace Birai.Services
                                                 {
                                                     Console.WriteLine("|> 回复发生未知错误");
                                                 }
-                                                else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送 {result.Message}" : $"|> 回复发送失败 {result.Message}");
+                                                else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送, 返回消息: [{result.Message}]" : $"|> 回复发送失败 {result.Message}");
 
                                                 await SaveNewItemAsync(session.TalkerId, bvid, desc);
                                                 Thread.Sleep(200);
@@ -109,13 +109,13 @@ namespace Birai.Services
                                         }
                                         else
                                         {
-                                            Console.WriteLine($"|> 视频不存在");
-                                            var result = await biraiProxy.SendMessageAsync(session.TalkerId, "[自动回复] 视频不存在, 请检查BV号");
+                                            Console.WriteLine($"|> 视频[{bvid}]不存在");
+                                            var result = await biraiProxy.SendMessageAsync(session.TalkerId, $"[自动回复] 视频[{bvid}]不存在, 请检查BV号");
                                             if (result == null)
                                             {
                                                 Console.WriteLine("|> 回复发生未知错误");
                                             }
-                                            else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送 {result.Message}" : $"|> 回复发送失败 {result.Message}");
+                                            else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送, 返回消息: [{result.Message}]" : $"|> 回复发送失败 {result.Message}");
 
                                             Thread.Sleep(200);
                                         }
@@ -128,7 +128,7 @@ namespace Birai.Services
                                         {
                                             Console.WriteLine("|> 回复发生未知错误");
                                         }
-                                        else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送{result.Message}" : $"|> 回复发送失败{result.Message}");
+                                        else Console.WriteLine(result.Code == 0 ? $"|> 回复已发送, 返回消息: [{result.Message}]" : $"|> 回复发送失败{result.Message}");
 
                                         Thread.Sleep(200);
                                     }
