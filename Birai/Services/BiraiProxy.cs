@@ -69,6 +69,11 @@ namespace Birai.Services
 
         public async Task<SendMessageResponseInfo> SendMessageAsync(string uid, string msg)
         {
+            // NO REPLY!
+
+            return new SendMessageResponseInfo { Code = 0, Message = "当前版本禁止发送回复" };
+
+
             var apiurl = "https://api.vc.bilibili.com/web_im/v1/web_im/send_msg";
 
             var accountInfo = Utils.Utils.GetAccountInfo();
