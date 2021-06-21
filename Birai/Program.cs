@@ -10,13 +10,20 @@ namespace Birai
         public static async Task Main(string[] args)
         {
             Bot bot = new();
-            Console.WriteLine($"||> BOT已启动 ({DateTime.Now.ToLongTimeString()})\n");
+            Console.WriteLine($"[Birai] BOT已启动 ({DateTime.Now.ToLongTimeString()})\n");
 
             while (true)
             {
-                await bot.TickAsync();
+                try
+                {
+                    await bot.TickAsync();
 
-                Thread.Sleep(500);
+                    Thread.Sleep(500);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }
