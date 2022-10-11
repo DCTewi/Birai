@@ -39,7 +39,7 @@ namespace Birai.Services
                 $"{desciption.Trim().Replace('\n', ' ').Replace(',', ' ')}," +
                 $"{Environment.NewLine}";
 
-            await File.AppendAllTextAsync("app/videos.csv", newline);
+            await File.AppendAllTextAsync("app/videos.csv", newline, new System.Text.UTF8Encoding(true));
         }
 
         private async Task CheckForNewRequests()
