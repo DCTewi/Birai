@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -62,13 +63,16 @@ namespace Birai.Services
                                 Console.WriteLine($"||> 发送者: {session.TalkerId}");
                                 Console.WriteLine($"||> 消息内容: {message}");
 
-                                if (message.StartsWith("/推荐"))
+                                if (message.StartsWith("/推荐") || message.StartsWith("推荐"))
                                 {
-                                    var messageSlice = message.Split(' ');
+                                    var messageSliceList = message.Trim().Split(' ').ToList();
+
+                                    messageSliceList.ForEach(x => x = x.Trim());
+                                    var messageSlice = messageSliceList.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
                                     if (messageSlice.Length >= 3)
                                     {
-                                        var bvid = messageSlice[1].Trim();
+                                        var bvid = messageSlice[1];
                                         var descs = new string[messageSlice.Length - 2];
 
                                         Array.Copy(messageSlice, 2, descs, 0, descs.Length);
@@ -110,7 +114,7 @@ namespace Birai.Services
                                         else
                                         {
                                             Console.WriteLine($"|> 视频[{bvid}]不存在");
-                                            var result = await biraiProxy.SendMessageAsync(session.TalkerId, $"[自动回复] 视频[{bvid}]不存在, 请检查BV号");
+                                            var result = await biraiProxy.SendMessageAsync(session.TalkerId, $"[自动回复] BV号为[{bvid}]的视频不存在, 请检查BV号或发送格式");
                                             if (result == null)
                                             {
                                                 Console.WriteLine("|> 回复发生未知错误");
