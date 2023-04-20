@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiliConnect", "BiliConnect\BiliConnect.csproj", "{B96901E8-F77B-47FE-8EDB-D74CE529B386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birai", "Birai\Birai.csproj", "{8B4666FA-4368-4031-A200-1D9D6B1F2020}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B96901E8-F77B-47FE-8EDB-D74CE529B386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96901E8-F77B-47FE-8EDB-D74CE529B386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96901E8-F77B-47FE-8EDB-D74CE529B386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96901E8-F77B-47FE-8EDB-D74CE529B386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4666FA-4368-4031-A200-1D9D6B1F2020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4666FA-4368-4031-A200-1D9D6B1F2020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4666FA-4368-4031-A200-1D9D6B1F2020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4666FA-4368-4031-A200-1D9D6B1F2020}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E769BECF-140A-4F95-900A-BDAF3267FF1A}
+	EndGlobalSection
+EndGlobal

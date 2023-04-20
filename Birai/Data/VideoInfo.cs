@@ -1,33 +1,23 @@
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Birai.Data
+﻿namespace Birai.Data
 {
     public class VideoInfo
     {
-        [JsonProperty("code")]
-        public int Code { get; set; }
+        public int Id { get; set; }
 
-        [JsonProperty("data")]
-        public VideoInfoData Data { get; set; }
-    }
+        public string Bvid { get; set; } = string.Empty;
 
-    public class VideoInfoData
-    {
-        [JsonProperty("tname")]
-        public string TypeName { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        [JsonProperty("copyright")]
-        public int CopyRight { get; set; }
+        public string TypeName { get; set; } = string.Empty;
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Duration { get; set; } = string.Empty;
 
-        [JsonProperty("duration")]
-        public int DurationSeconds { get; set; }
+        public bool CopyRight { get; set; } = false;
+
+        public string SubmiterId { get; set; } = string.Empty;
+
+        public string SubmiterName { get; set; } = string.Empty;
+
+        public string SubmitReason { get; set; } = string.Empty;
     }
 }

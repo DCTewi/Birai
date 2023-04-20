@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Birai.Models.Home.IndexModel
+
+
+@if (Model.VideoInfos.Count == 0)
+{
+    <div class="text-center">
+        <div class="display-4">目前没有推荐的视频</div>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">BV号</th>
+                    <th scope="col">标题</th>
+                    <th scope="col">分区</th>
+                    <th scope="col">时长</th>
+                    <th scope="col">原创</th>
+                    <th scope="col">推荐人</th>
+                    <th scope="col">昵称</th>
+                    <th scope="col">推荐理由</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var info in Model.VideoInfos)
+                {
+                    <tr>
+                        <th scope="col">@info.Bvid</th>
+                        <td>@info.Title</td>
+                        <td>@info.TypeName</td>
+                        <td>@info.Duration</td>
+                        <td>@info.CopyRight</td>
+                        <td>@info.SubmiterId</td>
+                        <td>@info.SubmiterName</td>
+                        <td>@info.SubmitReason</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

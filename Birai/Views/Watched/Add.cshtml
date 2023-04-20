@@ -1,0 +1,11 @@
+﻿@model Birai.Models.Watched.AddModel
+@{
+    ViewData["Title"] = "添加已看过";
+}
+
+<form asp-route="AddWatch">
+    <div class="form-group">
+        <textarea class="form-control" rows="5" asp-for="Watches"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark btn-block mt-3">添加</button>
+</form>

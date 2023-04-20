@@ -1,0 +1,32 @@
+﻿@model Birai.Models.Watched.IndexModel
+@{
+    ViewData["Title"] = "看过的";
+}
+
+
+@if (Model.Watches.Count == 0)
+{
+    <div class="text-center">
+        <div class="display-4">目前没有看过的视频</div>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">BV号</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var info in Model.Watches)
+                {
+                    <tr>
+                        <td scope="col">@info.Bvid</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

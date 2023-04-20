@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "登录到B站";
+}
+
+@model Birai.Models.BLogin.LoginModel
+
+<div class="text-center align-content-center">
+    @if (ViewData.ContainsKey("Result"))
+    {
+        var result = ViewData["Result"] as BiliConnect.Data.QRCodeStatus? ?? BiliConnect.Data.QRCodeStatus.Expired;
+
+        <h3>登录失败, 失败码:<code>@result</code></h3>
+    }
+
+    <div id="qrcode-login" class="mx-auto d-block"></div>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrcode-login"), "@Html.Raw(Model.QRCodeUrl)");
+    </script>
+
+    <form autocomplete="off" asp-route="Login">
+        <input type="hidden" asp-for="QRCodeKey" />
+        <input type="hidden" asp-for="QRCodeUrl" />
+        <p>
+            <button type="submit" class="btn btn-dark btn-block mt-3">我已扫码,点击登录</button>
+        </p>
+    </form>
+</div>

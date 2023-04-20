@@ -1,25 +1,16 @@
 # Birai4Otome
 A bilibili bot
 
-你需要手动创建以下文件并设置为复制到输出目录。
+## installation
 
-1. app/cookies.txt
-
-直接放置进Header的cookie字符串。
-
-2. app/account.json
-
-```json
-{
-  "uid": "你的UID",
-  "dev_id": "发送私信的表单需要的DEV_ID，是一串UUID"
-}
+```shell
+chmod +x ./Birai
+./Birai
 ```
 
-3. app/videos.csv
+配合nginx+systemctl部署到局域网树莓派, 访问反代IP使用临时前端控制面板控制功能
 
-用于接收推荐视频结果，留空。
 
-4. app/history.txt
+## todo
 
-播放历史，每行一个BV号。
+- 删除ASP.Net Core相关内容, 提供纯净的Bot服务, 集成到新的字幕组平台上

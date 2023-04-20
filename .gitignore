@@ -369,3 +369,7 @@ account.json
 videos.csv
 
 Build/
+
+*.db
+*.db-shm
+*.db-wal
