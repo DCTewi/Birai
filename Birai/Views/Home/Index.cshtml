@@ -30,7 +30,7 @@ else
                 @foreach (var info in Model.VideoInfos)
                 {
                     <tr>
-                        <th scope="col">@info.Bvid</th>
+                        <td><a target="_blank" href="https://bilibili.com/@info.Bvid">@info.Bvid</a></td>
                         <td>@info.Title</td>
                         <td>@info.TypeName</td>
                         <td>@info.Duration</td>
