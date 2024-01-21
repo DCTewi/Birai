@@ -33,7 +33,7 @@ namespace Birai.Services
             {
                 if (await _qrAuth.CheckAuthStatusAsync())
                 {
-                    if (++_heartbeatCount >= 5)
+                    if (++_heartbeatCount >= 50)
                     {
                         _heartbeatCount = 0;
                         _logger.LogInformation("Heartbeat");
